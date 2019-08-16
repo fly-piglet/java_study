@@ -151,3 +151,8 @@ local.properties
 .scala_dependencies
 .worksheet
 
+java_study.iml
+.idea/compiler.xml
+.idea/misc.xml
+.idea/vcs.xml
+.idea/inspectionProfiles/Project_Default.xml
