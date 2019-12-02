@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.wlh</groupId>
+    <artifactId>remote.debug</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <!--        编码格式-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!--        源代码编译等级模式-->
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <!--        目标jar包编译等级-->
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <!--        设定编译的文件名称-->
+        <docker.buildArg.JAR_FILE>${project.build.finalName}.jar</docker.buildArg.JAR_FILE>
+    </properties>
+
+    <build>
+<!--        设定jar包名称-->
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+<!--            修改maven默认编译插件设定相关信息-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.wlh.remote.debug.App</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <!-- 配置最简单最好用 -->
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.30.0</version>
+                <configuration>
+                    <images>
+                        <image>
+                            <name>${project.name}:${project.version}</name>
+                            <build>
+                                <dockerFileDir>${project.basedir}</dockerFileDir>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
