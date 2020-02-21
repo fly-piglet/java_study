@@ -1,0 +1,33 @@
+JAVA基础
+
+
+JAVA中的几种基本数据类型是什么，各自占用多少字节。
+boolean 1b,byte 1b,char 2b,short 2b,int 4b,long 8b,float 4b,double 8b,
+
+
+String类能被继承吗？为什么。
+不能，final修饰
+
+
+JDK8中的接口Interface可以实现具体方法
+1、default void method(){...};        普通方法，必须写default
+2、public static void method(){...};  类方法，只能用public或者省略不写
+
+
+String、StringBuffer、StringBuiler的区别
+不可变类、可变线程安全、可变线程不安全
+
+
+ArrayList和LinkedList有什么区别
+数组实现，扩容时拷贝，下标查找方便；链表实现，增删方便
+
+
+讲讲类的实例化顺序，比如父类静态数据，构造函数，字段，子类静态数据，构造函数，字段，当new的时候，他们的执行顺序
+父类静态数据 and 父类静态代码块 > 子类静态数据 and 子类静态代码块 > 父类普通变量、非静态代码、构造方法 > 子类普通变量、非静态代码、构造方法
+
+
+用过哪些map类，都有什么区别，hashMap是线程安全的吗，并发下使用的map是什么，他们的内部原理是什么，比如存储方式，hashcode，扩容，默认容量等。
+hashtable       hashMap       linkedhashmap             treemap
+线程安全       线程不安全效率高    线程不安全，插入顺序即存储   按照顺序插入，能够进行排序
+  哈希表         哈希表         哈希表+双向链表               红黑树
+
